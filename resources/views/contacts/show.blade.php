@@ -17,7 +17,7 @@
                 <h3 class="text-lg font-bold mb-4">Interactions</h3>
                 <!-- Open modal knop -->
                 <div class="flex justify-end mb-4">
-                    <button @click="interactionOpen = true" class="px-4 py-2 bg-indigo-600 text-white rounded">
+                    <button @clickk="interactionOpen = true" class="px-4 py-2 bg-indigo-600 text-white rounded">
                         Add Interaction
                     </button>
                 </div>

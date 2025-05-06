@@ -14,7 +14,7 @@ class DashboardController extends Controller
 
         // Query for total invoices and total amount this year
         $totalInvoices = Invoice::whereYear('created_at', $currentYear)->count();
-        $totalAmount = Invoice::whereYear('created_at', $currentYear)->sum('total_amount');
+        $totalAmount = Invoice::whereYear('created_at', $currentYear)->sum('amount');
 
         // Data for chart: monthly invoices and amounts
         $chartData = Invoice::selectRaw('MONTH(created_at) as month, COUNT(*) as total_invoices, SUM(total_amount) as total_amount')

@@ -8,8 +8,8 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-4">
             <div class="bg-white p-6 shadow rounded">
-                <h2 class="text-2xl font-bold mb-2">Company Info</h2>
-                <h3 class="text-lg font-bold mb-2 text-blue-500">
+                <h2 class="text-xl font-bold mb-2">Company Info</h2>
+                <h3 class="text-4xl font-bold mb-2 text-blue-500">
                     {{ $company->company_name }}
                 </h3>
                 <p><strong>Address:</strong> {{ $company->address }}</p>
@@ -73,6 +73,11 @@
 
                 <h3 class="text-lg font-bold mb-4">Contacts</h3>
                 <ul class="list-disc pl-5">
+                    @if ($company->contacts->isEmpty())
+                    <li class="text-gray-500">No contacts yet</li>
+                    @else
+                        
+
                     @foreach($company->contacts as $contact)
                     <li>
                         <a href="{{ route('contacts.show', $contact->id) }}" class="text-blue-500 hover:underline">
@@ -81,6 +86,7 @@
                     </li>
                     @endforeach
                 </ul>
+                @endif
             </div>
 
             <div class="bg-white p-6 shadow rounded">
@@ -99,7 +105,7 @@
                 
                             <form action="{{ route('invoices.store') }}" method="POST" class="space-y-4">
                                 @csrf
-                                <input type="hidden" name="company_id" value="{{ $company->id }}">
+                                <input type="hidden" name="company_i" value="{{ $company->id }}">
                              
                 
                   

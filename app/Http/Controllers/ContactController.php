@@ -35,10 +35,10 @@ class ContactController extends Controller
         // Validate the request
         $validatedData = $request->validate([
             'company_id' => 'required|exists:companies,id',
-            'first_name' => 'required|string|max:255',
+            'first_nam' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'position' => 'nullable|string|max:255',
-            'email' => 'nullable|email|max:255',
+            'emai' => 'nullable|email|max:255',
             'phone' => 'nullable|string|max:20',
         ]);
     
