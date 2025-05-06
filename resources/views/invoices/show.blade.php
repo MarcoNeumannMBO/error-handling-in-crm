@@ -5,7 +5,7 @@
 
     <div class="py-6 max-w-4xl mx-auto">
         <div class="bg-white p-6 shadow rounded space-y-2">
-            <p><strong>Company:</strong> {{ $invoice->company->name }}</p>
+            <p><strong>Company:</strong> {{ $invoice->company->company_name }}</p>
             <p><strong>Issue Date:</strong> {{ $invoice->issue_date }}</p>
             <p><strong>Due Date:</strong> {{ $invoice->due_date }}</p>
             <p><strong>Total:</strong> €{{ $invoice->total_amount }}</p>

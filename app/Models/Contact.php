@@ -5,13 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Contact extends Model
 {
     /** @use HasFactory<\Database\Factories\ContactFactory> */
     use HasFactory;
-    
-    protected $fillable = ['company_id', 'first_name', 'last_name', 'email', 'phone', 'position'];
+
+    protected $fillable = [
+        'company_id',
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'position'
+    ];
 
     public function company(): BelongsTo
     {

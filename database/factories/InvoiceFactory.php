@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invoices>
  */
-class InvoicesFactory extends Factory
+class InvoiceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,15 +17,15 @@ class InvoicesFactory extends Factory
     public function definition(): array
     {
         return [
-            'company_id' => \App\Models\Company::factory(),
-            'invoice_number' => 'INV-' . $this->faker->unique()->numberBetween(1000, 9999),
+            // based on migration file
+            'company_id' => $this->faker->randomDigitNotNull(),
+            'invoice_number' => $this->faker->unique()->numerify('INV-#####'),
             'issue_date' => $this->faker->date(),
             'due_date' => $this->faker->date(),
-            'total_amount' => $this->faker->randomFloat(2, 100, 5000),
+            'description' => $this->faker->sentence(),
+            'total_amount' => $this->faker->randomFloat(2, 100, 10000),
             'status' => $this->faker->randomElement(['draft', 'sent', 'paid']),
-            'pdf_path' => null,
-            'created_at' => now(),
-            'updated_at' => now(),
+            'pdf_path' => $this->faker->optional()->filePath(),
         ];
     }
 }

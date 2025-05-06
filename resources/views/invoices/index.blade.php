@@ -4,6 +4,8 @@
     </x-slot>
 
     <div class="py-4 max-w-7xl mx-auto">
+
+
         <div class="bg-white shadow rounded p-4">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead>
@@ -18,8 +20,16 @@
                 <tbody>
                     @foreach($invoices as $invoice)
                         <tr class="bg-white border-b">
-                            <td class="px-6 py-4">#{{ $invoice->invoice_number }}</td>
-                            <td class="px-6 py-4">{{ $invoice->company->name }}</td>
+                            <td class="px-6 py-4">
+                                <a href="{{ route('invoices.show', $invoice->id) }}" class="text-blue-500 hover:underline">
+                                    #{{ $invoice->invoice_number }}
+                                </a>
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="{{ route('companies.show', $invoice->company->id) }}" class="text-blue-500 hover:underline">
+                                    {{ $invoice->company->company_name }}
+                                </a>
+                            </td>
                             <td class="px-6 py-4">{{ $invoice->issue_date }}</td>
                             <td class="px-6 py-4">€{{ $invoice->total_amount }}</td>
                             <td class="px-6 py-4">{{ ucfirst($invoice->status) }}</td>

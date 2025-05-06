@@ -5,10 +5,7 @@
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="{{ route('contacts.create') }}"
-               class="mb-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                + Add Contact
-            </a>
+
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
@@ -23,10 +20,14 @@
                     <tbody>
                         @foreach($contacts as $contact)
                             <tr class="bg-white border-b">
-                                <td class="px-6 py-4">{{ $contact->first_name }} {{ $contact->last_name }}</td>
+                                <td class="px-6 py-4">
+                                    <a href="{{ route('contacts.show', $contact->id) }}" class="text-blue-500 hover:underline">
+                                        {{ $contact->first_name }} {{ $contact->last_name }}
+                                    </a>
+                                </td>
                                 <td class="px-6 py-4">{{ $contact->email }}</td>
                                 <td class="px-6 py-4">{{ $contact->phone }}</td>
-                                <td class="px-6 py-4">{{ $contact->company->name }}</td>
+                                <td class="px-6 py-4">{{ $contact->company->company_name }}</td>
                             </tr>
                         @endforeach
                     </tbody>

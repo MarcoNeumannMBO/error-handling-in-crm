@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('interactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('contact_id')->constrained()->onDelete('cascade');
+            $table->date('interaction_date')->default(now());
+            $table->time('interaction_time')->default(now()->format('H:i:s'));
+            $table->string('subject')->nullable();
+            $table->text('notes')->nullable();
+            $table->enum('interaction_type', ['call', 'email', 'meeting'])->default('call');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

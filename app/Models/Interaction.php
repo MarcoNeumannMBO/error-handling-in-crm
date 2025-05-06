@@ -11,7 +11,7 @@ class Interaction extends Model
     /** @use HasFactory<\Database\Factories\InteractionFactory> */
     use HasFactory;
 
-    protected $fillable = ['contact_id', 'type', 'subject', 'notes', 'interaction_date'];
+    protected $fillable = ['contact_id', 'interaction_type', 'notes', 'subject'];
 
     public function contact(): BelongsTo
     {

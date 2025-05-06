@@ -7,9 +7,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Livewire Card for Total Invoices -->
+                        <x-dashboard-card title="Total Invoices This Year" :value="$totalInvoices" />
+        
+                        <!-- Livewire Card for Total Amount -->
+                        <x-dashboard-card title="Total Amount This Year" :value="number_format($totalAmount, 2)" />
+                    </div>
                 </div>
             </div>
         </div>

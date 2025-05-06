@@ -17,13 +17,14 @@ class InteractionFactory extends Factory
     public function definition(): array
     {
         return [
+            // based on migration file
             'contact_id' => \App\Models\Contact::factory(),
-            'type' => $this->faker->randomElement(['email', 'phone', 'meeting']),
-            'subject' => $this->faker->sentence(6),
-            'notes' => $this->faker->paragraph,
             'interaction_date' => $this->faker->date(),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'interaction_time' => $this->faker->time(),
+            'subject' => $this->faker->optional()->sentence(),
+            'notes' => $this->faker->optional()->text(),
+            'interaction_type' => $this->faker->randomElement(['call', 'email', 'meeting']),
+            'status' => $this->faker->randomElement(['pending', 'completed', 'canceled']),
         ];
     }
 }

@@ -23,7 +23,7 @@
                     <tbody>
                         @foreach($companies as $company)
                             <tr class="bg-white border-b">
-                                <td class="px-6 py-4">{{ $company->name }}</td>
+                                <td class="px-6 py-4">{{ $company->company_name }}</td>
                                 <td class="px-6 py-4">{{ $company->email }}</td>
                                 <td class="px-6 py-4">{{ $company->vat_number }}</td>
                                 <td class="px-6 py-4 text-right">
